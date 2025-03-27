@@ -1,0 +1,145 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    background-color: rgb(2, 2, 63);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5vw;
+    z-index: 1000;
+    overflow: hidden;
+    border-bottom: solid 2px grey;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header-left,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 1rem;
+    z-index: 10;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 2rem;
+    height: 0.25rem;
+    margin: 0.3rem auto;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+nav.menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 80%;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+nav.menu a {
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+}
+
+nav.menu.open {
+    display: flex;
+}
+
+.hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 0.5rem;
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -0.5rem;
+}
+
+.artist-search {
+    display: block;
+    width: 8em;
+    height: auto;
+    max-width: 300px;
+    padding: 0.5rem;
+    margin-right: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    display: none;
+}
+
+.search-icon {
+    display: block;
+}
+
+@media (min-width: 48em) {
+
+    .header {
+        width: 92.5vw;
+    }
+
+    /* hamburger hidden on large screens */
+    .hamburger {
+        display: none;
+    }
+
+    /* horizontal nav visible on large screens */
+    nav.menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        width: auto;
+    }
+
+    .artist-search {
+        display: block;
+    }
+
+    /* hide the small icon on large screens */
+    .search-icon {
+        display: none;
+    }
+}

@@ -1,0 +1,133 @@
+.page {
+    width: 100vw;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.page-headline {
+    margin-top: 6rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.stepper-container {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    background-color: #3a3a3a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stepper-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 2px solid #ccc;
+    color: #ccc;
+    font-weight: normal;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.step.active {
+    border-bottom-color: rgb(2, 2, 63);
+    color: rgb(2, 2, 63);
+    font-weight: bold;
+}
+
+.stepper-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.stepper-actions button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input-group .account-field {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid rgb(2, 2, 63);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+.error {
+    width: 95%;
+    color: red;
+    padding: 1rem;
+    border: solid 3px red;
+    border-radius: 0.5rem;
+}
+
+
+@media (min-width: 600px) {
+    .page-headline {
+        font-size: 2rem;
+    }
+
+    .stepper-container {
+        width: 80%;
+        padding: 2rem;
+    }
+
+    .step {
+        flex: 1 1 auto;
+        padding: 1.5rem 2rem;
+        font-size: 1rem;
+    }
+
+    .stepper-actions {
+        gap: 2rem;
+    }
+
+    .stepper-actions button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .stepper-container {
+        width: 70%;
+        padding: 2rem 3rem;
+    }
+
+    .step {
+        padding: 1rem 5rem;
+    }
+
+    .stepper-actions {
+        gap: 3rem;
+    }
+}

@@ -1,0 +1,1 @@
+export const HIDE_RENOVATION_PATHS = ['/join', '/login', '/profile'];
