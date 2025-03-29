@@ -29,11 +29,6 @@ function Header() {
         <header className="header">
             <div className="header-left">
                 <Link to="/" className="logo"><i>The Delrano</i></Link>
-                <button className="hamburger" onClick={toggleMenu}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                </button>
             </div>
 
             <div className='header-center'>
@@ -60,6 +55,11 @@ function Header() {
             </div>
 
             <div className='header-right'>
+                <button className="hamburger" onClick={toggleMenu}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </button>
                 {/* search input */}
                 <div>
                     <input

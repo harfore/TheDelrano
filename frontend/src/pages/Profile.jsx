@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import { NotFound } from '../components/NotFound';
 import '../styles/JoinLogin.css';
 
 const Profile = () => {
@@ -10,7 +11,7 @@ const Profile = () => {
             {isLoggedIn ? (
                 <h2>{userName}</h2>
             ) : (
-                ''
+                <NotFound />
             )
             }
         </div>
