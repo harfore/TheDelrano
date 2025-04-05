@@ -39,6 +39,10 @@ const createApiInstance = (baseURL) => {
     return instance;
 };
 
+export const eventsApi = createApiInstance(
+    import.meta.env.VITE_EVENTS_API_URL || 'http://localhost:3000/api/events'
+);
+
 // environment-configured API endpoints with local fallbacks
 const baseURLs = {
     auth: import.meta.env.VITE_AUTH_API_URL || 'http://localhost:3000/api/auth',

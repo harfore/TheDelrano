@@ -11,13 +11,16 @@ const swaggerUi = require('swagger-ui-express');
 // import routes
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
-// const tourRoutes = require('./routes/toursRoutes');
-// const concertRoutes = require('./routes/concertsRoutes');
+const tourRoutes = require('./routes/tourRoutes');
+const concertRoutes = require('./routes/concertRoutes');
+const venueRoutes = require('./routes/venueRoutes');
+const cityRoutes = require('./routes/cityRoutes');
 
-app.get('*.js', (req, res, next) => {
-    res.set('Content-Type', 'application/javascript');
-    next();
-});
+// app.get('*.js', (req, res, next) => {
+//     res.set('Content-Type', 'application/javascript');
+//     next();
+// });
+app.use(cors());
 
 app.get('/db-info', async (req, res) => {
     try {
@@ -52,12 +55,18 @@ app.use(xssProtection);
 app.use(morgan('dev'));
 
 // 3° CORS configuration (simplified)
-// app.use(cors({
-//     origin: '*', // Allows all origins
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     credentials: false // Must be false when origin is '*'
-// }));
-app.use(cors());
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    next();
+});
+app.use((req, res, next) => {
+    res.setHeader('Content-Type', 'application/json');
+    next();
+});
+
+app.options('*', (req, res) => res.sendStatus(200));
 
 // 4° Body parser with size limit
 app.use(express.json({ limit: '10kb' }));
@@ -75,8 +84,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 // 8° API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
-// app.use('/api/tours', tourRoutes);
-// app.use('/api/concerts', concertRoutes);
+app.use('/api/venues', venueRoutes);
+app.use('/api/tours', tourRoutes);
+app.use('/api/concerts', concertRoutes);
+// app.use('/api/city', cityRoutes);
+app.use('/api/cities', cityRoutes);
 
 // 9° Root endpoint
 app.get('/', (req, res) => {

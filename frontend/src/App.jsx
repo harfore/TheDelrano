@@ -6,6 +6,7 @@ import Renovation from './components/Renovation';
 import routes from './routes';
 import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import { HIDE_RENOVATION_PATHS } from './constants';
+import TestPage from '../src/components/TestPage';
 
 function AppContent() {
   const location = useLocation();
